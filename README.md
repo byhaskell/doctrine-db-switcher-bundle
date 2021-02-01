@@ -137,6 +137,18 @@ hakam_doctrine_db_switcher:
       dir:   '%kernel.project_dir%/src/Entity/Tenant'           # directory of tenant entities, it could be different from main directory                                           
       prefix: App\Entity\Tenant                                 # tenant entities prefix  ex "App\Entity\Tenant"
       alias:   Tenant                                           # tenant entities alias  ex "Tenant"
+    dql:
+      string_functions:
+        MD5: '\DoctrineExtensions\Query\Mysql\Md5'
+        regexp: '\DoctrineExtensions\Query\Mysql\Regexp'
+        date_format: '\DoctrineExtensions\Query\Mysql\DateFormat'
+        year: '\DoctrineExtensions\Query\Mysql\Year'
+        day: '\DoctrineExtensions\Query\Mysql\Day'
+        NOW: '\DoctrineExtensions\Query\Mysql\Now'
+        date_diff: '\DoctrineExtensions\Query\Mysql\DateDiff'
+        date: '\DoctrineExtensions\Query\Mysql\Date'
+        date_add: '\DoctrineExtensions\Query\Mysql\DateAdd'
+        date_sub: '\DoctrineExtensions\Query\Mysql\DateSub'
  ```
              
 ### Contribution
