@@ -1,8 +1,6 @@
 <?php
 
-
 namespace byhaskell\DoctrineDbSwitcherBundle\DependencyInjection;
-
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -22,6 +20,7 @@ class Configuration implements ConfigurationInterface
             ->children()
             ->variableNode('tenant_database_className')->info('Tenant dbs configuration Class Name')->defaultValue('TenantDb')->end()
             ->variableNode('tenant_database_identifier')->info('tenant db column name to get db configuration')->defaultValue('id')->end()
+            ->variableNode('tenant_database_manager')->info('Service ID entity manager through which you can connect with the entity tenant_database_className')->defaultValue('doctrine.orm.default_entity_manager')->end()
             ->end()
             ->children()
             ->arrayNode('tenant_connection')->info('tenant entity manager connection configuration')

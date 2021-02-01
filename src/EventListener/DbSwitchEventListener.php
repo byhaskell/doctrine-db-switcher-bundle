@@ -1,8 +1,6 @@
 <?php
 
-
 namespace byhaskell\DoctrineDbSwitcherBundle\EventListener;
-
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use byhaskell\DoctrineDbSwitcherBundle\Event\SwitchDbEvent;

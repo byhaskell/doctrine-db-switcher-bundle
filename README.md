@@ -121,6 +121,7 @@ $ composer require byhaskell/doctrine-db-switcher-bundle
 byhaskell_doctrine_db_switcher:
   tenant_database_className:  App\Entity\Main\TenantDbConfig     # tenant dbs configuration Class Name
   tenant_database_identifier: id                                 # tenant db column name to get db configuration
+  tenant_database_manager: 'doctrine.orm.default_entity_manager' # service ID entity manager through which you can connect with the entity tenant_database_className
   tenant_connection:                                             # tenant entity manager connection configuration
     host:     127.0.0.1
     driver:   pdo_mysql

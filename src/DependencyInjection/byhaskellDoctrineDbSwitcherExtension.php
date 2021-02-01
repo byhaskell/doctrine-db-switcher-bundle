@@ -1,8 +1,6 @@
 <?php
 
-
 namespace byhaskell\DoctrineDbSwitcherBundle\DependencyInjection;
-
 
 use byhaskell\DoctrineDbSwitcherBundle\Doctrine\DBAL\TenantConnection;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
@@ -28,6 +26,7 @@ class byhaskellDoctrineDbSwitcherExtension extends Extension implements PrependE
         $definition = $container->getDefinition('byhaskell_db_config.service');
         $definition->setArgument(1, $configs['tenant_database_className']);
         $definition->setArgument(2, $configs['tenant_database_identifier']);
+        $definition->setArgument(3, $configs['tenant_database_manager']);
     }
 
     public function prepend(ContainerBuilder $container)

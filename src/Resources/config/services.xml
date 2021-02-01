@@ -5,9 +5,10 @@
         http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
         <service id ="byhaskell_db_config.service" class="byhaskell\DoctrineDbSwitcherBundle\Services\DbConfigService" public="false" >
-            <argument  key="$entityManager" type="service" id = 'doctrine.orm.entity_manager'/>
+            <argument  key="$container" type="service" id = 'service_container'/>
             <argument  key="$dbClassName" type="string" id="dbClassName"/>
             <argument  key="$dbIdentifier" type="string" id="id"/>
+            <argument  key="$serviceIdManager" type="string" id="doctrine.orm.default_entity_manager"/>
         </service>
         <service id="byhaskell\DoctrineDbSwitcherBundle\Services\DbConfigService" alias="byhaskell_db_config.service"/>
         <service id="byhaskell\DoctrineDbSwitcherBundle\EventListener\DbSwitchEventListener">

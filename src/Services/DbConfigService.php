@@ -1,8 +1,6 @@
 <?php
 
-
 namespace byhaskell\DoctrineDbSwitcherBundle\Services;
-
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface;
@@ -10,6 +8,7 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use LogicException;
 use RuntimeException;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * @author Ramy byhaskell <pencilsoft1@gmail.com>
@@ -24,11 +23,15 @@ class DbConfigService
      * @var string
      */
     private $dbIdentifier;
+    /**
+     * @var string
+     */
+    private $serviceIdManager;
 
-    public function __construct(EntityManagerInterface $entityManager,string $dbClassName, string $dbIdentifier)
+    public function __construct(ContainerInterface $container, string $dbClassName, string $dbIdentifier, string $serviceIdManager)
     {
         $this->dbIdentifier = $dbIdentifier;
-        $this->entityRepository = $entityManager->getRepository($dbClassName);
+        $this->entityRepository = $container->get($serviceIdManager)->getRepository($dbClassName);
     }
 
     public function findDbConfig(string $identifier)
