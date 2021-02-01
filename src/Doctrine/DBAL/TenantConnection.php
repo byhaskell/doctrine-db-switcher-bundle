@@ -1,6 +1,5 @@
 <?php
 
-
 namespace byhaskell\DoctrineDbSwitcherBundle\Doctrine\DBAL;
 
 use Doctrine\Common\EventManager;

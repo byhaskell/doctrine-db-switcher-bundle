@@ -28,7 +28,7 @@ class DbConfigService
      */
     private $serviceIdManager;
 
-    public function __construct(ContainerInterface $container, string $dbClassName, string $dbIdentifier, string $serviceIdManager)
+    public function __construct(EntityManagerInterface $entityManager, ContainerInterface $container, string $dbClassName, string $dbIdentifier, string $serviceIdManager)
     {
         $this->dbIdentifier = $dbIdentifier;
         $this->entityRepository = $container->get($serviceIdManager)->getRepository($dbClassName);
