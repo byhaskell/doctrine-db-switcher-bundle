@@ -5,11 +5,10 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Ramy byhaskell",
-            "email": "pencilsoft1@gmail.com"
+            "name": "byhaskell",
+            "email": "by.haskell@gmail.com"
         }
     ],
-
     "require": {
         "php": "^7.2.5",
         "symfony/config": "^5.1.1",
