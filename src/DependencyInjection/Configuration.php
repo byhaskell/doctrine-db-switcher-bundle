@@ -58,6 +58,13 @@ class Configuration implements ConfigurationInterface
             ->variableNode('alias')->info('Tenant entities alias example " Tenant " ')->end()
             ->end()
             ->end()
+            ->end()
+            ->children()
+            ->arrayNode('dql')
+            ->children()
+            ->arrayNode('string_functions')->scalarPrototype()->end()->end()
+            ->end()
+            ->end()
             ->end();
         return $treeBuilder;
     }

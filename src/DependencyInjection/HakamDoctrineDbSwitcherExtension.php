@@ -62,7 +62,8 @@ class HakamDoctrineDbSwitcherExtension extends Extension implements PrependExten
                                 'prefix' => $dbSwitcherConfig['tenant_entity_manager']['mapping']['prefix'],
                                 'alias' => $dbSwitcherConfig['tenant_entity_manager']['mapping']['alias']
                             ]
-                        ]
+                        ],
+                        'dql' => $dbSwitcherConfig['tenant_entity_manager']['dql'] ?? null
                     ]
                 ]
             ];
