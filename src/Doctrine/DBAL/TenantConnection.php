@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Hakam\DoctrineDbSwitcherBundle\Doctrine\DBAL;
+namespace byhaskell\DoctrineDbSwitcherBundle\Doctrine\DBAL;
 
 use Doctrine\Common\EventManager;
 use Doctrine\DBAL\Configuration;
@@ -11,7 +11,7 @@ use Doctrine\DBAL\Events;
 use Doctrine\DBAL\Event;
 
 /**
- * @author Ramy Hakam <pencilsoft1@gmail.com>
+ * @author Ramy byhaskell <pencilsoft1@gmail.com>
  */
 class TenantConnection extends Connection
 {

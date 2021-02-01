@@ -25,7 +25,7 @@ This bundle requires
 Install using Composer
 
 ```sh
-$ composer require hakam/doctrine-db-switcher-bundle
+$ composer require byhaskell/doctrine-db-switcher-bundle
 ``` 
  ### Using the Bundle
  ###### The idea behind this bundle is simple,You have a main database and  multi-tenant databases So: 
@@ -57,8 +57,8 @@ $ composer require hakam/doctrine-db-switcher-bundle
     
     
       use Symfony\Component\EventDispatcher\EventDispatcherInterface;  
-      use Hakam\DoctrineDbSwitcherBundle\Event\SwitchDbEvent;
-      use Hakam\DoctrineDbSwitcherBundle\Doctrine\ORM\TenantEntityManager;
+      use byhaskell\DoctrineDbSwitcherBundle\Event\SwitchDbEvent;
+      use byhaskell\DoctrineDbSwitcherBundle\Doctrine\ORM\TenantEntityManager;
       use Doctrine\ORM\EntityManagerInterface;
       use App\Entity\Tenant\TenantEntityExample;
       use App\Entity\Main\MainLog;
@@ -116,9 +116,9 @@ $ composer require hakam/doctrine-db-switcher-bundle
  ### Configuration
  
  In this example below you can find the list of all configuration parameters required witch you should create in
-   `config/packages/hakam_doctrine_db_switch_bundle.yaml` with this configuration:
+   `config/packages/byhaskell_doctrine_db_switch_bundle.yaml` with this configuration:
  ``` yaml 
-hakam_doctrine_db_switcher:
+byhaskell_doctrine_db_switcher:
   tenant_database_className:  App\Entity\Main\TenantDbConfig     # tenant dbs configuration Class Name
   tenant_database_identifier: id                                 # tenant db column name to get db configuration
   tenant_connection:                                             # tenant entity manager connection configuration

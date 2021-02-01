@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Hakam\DoctrineDbSwitcherBundle\DependencyInjection;
+namespace byhaskell\DoctrineDbSwitcherBundle\DependencyInjection;
 
 
-use Hakam\DoctrineDbSwitcherBundle\Doctrine\DBAL\TenantConnection;
+use byhaskell\DoctrineDbSwitcherBundle\Doctrine\DBAL\TenantConnection;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -13,9 +13,9 @@ use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 /**
- * @author Ramy Hakam <pencilsoft1@gmail.com>
+ * @author Ramy byhaskell <pencilsoft1@gmail.com>
  */
-class HakamDoctrineDbSwitcherExtension extends Extension implements PrependExtensionInterface
+class byhaskellDoctrineDbSwitcherExtension extends Extension implements PrependExtensionInterface
 {
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -25,7 +25,7 @@ class HakamDoctrineDbSwitcherExtension extends Extension implements PrependExten
         $configuration = $this->getConfiguration($configs, $container);
 
         $configs = $this->processConfiguration($configuration, $configs);
-        $definition = $container->getDefinition('hakam_db_config.service');
+        $definition = $container->getDefinition('byhaskell_db_config.service');
         $definition->setArgument(1, $configs['tenant_database_className']);
         $definition->setArgument(2, $configs['tenant_database_identifier']);
     }

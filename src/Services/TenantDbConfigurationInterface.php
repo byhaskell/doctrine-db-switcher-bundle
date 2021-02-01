@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Hakam\DoctrineDbSwitcherBundle\Services;
+namespace byhaskell\DoctrineDbSwitcherBundle\Services;
 
 /**
- * @author Ramy Hakam <pencilsoft1@gmail.com>
+ * @author Ramy byhaskell <pencilsoft1@gmail.com>
  */
 Interface TenantDbConfigurationInterface
 {

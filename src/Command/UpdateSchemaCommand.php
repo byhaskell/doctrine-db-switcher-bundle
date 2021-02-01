@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Hakam\DoctrineDbSwitcherBundle\Command;
+namespace byhaskell\DoctrineDbSwitcherBundle\Command;
 
 
 use Doctrine\Bundle\DoctrineBundle\Command\Proxy\UpdateSchemaDoctrineCommand;
@@ -10,7 +10,7 @@ use Doctrine\Migrations\Configuration\EntityManager\ExistingEntityManager;
 use Doctrine\Migrations\Configuration\Migration\ConfigurationArray;
 use Doctrine\Migrations\DependencyFactory;
 use Doctrine\ORM\EntityManagerInterface;
-use Hakam\DbSwitcherBundle\Event\SwitchDbEvent;
+use byhaskell\DbSwitcherBundle\Event\SwitchDbEvent;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Command\Command;
@@ -21,7 +21,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * @author Ramy Hakam <pencilsoft1@gmail.com>
+ * @author Ramy byhaskell <pencilsoft1@gmail.com>
  */
 final class UpdateSchemaCommand extends Command
 {

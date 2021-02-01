@@ -1,18 +1,18 @@
 <?php
 
 
-namespace Hakam\DoctrineDbSwitcherBundle\EventListener;
+namespace byhaskell\DoctrineDbSwitcherBundle\EventListener;
 
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Hakam\DoctrineDbSwitcherBundle\Event\SwitchDbEvent;
-use Hakam\DoctrineDbSwitcherBundle\Services\DbConfigService;
-use Hakam\DoctrineDbSwitcherBundle\Services\TenantDbConfigurationInterface;
+use byhaskell\DoctrineDbSwitcherBundle\Event\SwitchDbEvent;
+use byhaskell\DoctrineDbSwitcherBundle\Services\DbConfigService;
+use byhaskell\DoctrineDbSwitcherBundle\Services\TenantDbConfigurationInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
- * @author Ramy Hakam <pencilsoft1@gmail.com>
+ * @author Ramy byhaskell <pencilsoft1@gmail.com>
  */
 class DbSwitchEventListener implements EventSubscriberInterface
 {
@@ -35,11 +35,11 @@ class DbSwitchEventListener implements EventSubscriberInterface
     {
       return
       [
-          SwitchDbEvent::class => 'onHakamDoctrineDbSwitcherBundleEventSwitchDbEvent'
+          SwitchDbEvent::class => 'onbyhaskellDoctrineDbSwitcherBundleEventSwitchDbEvent'
       ];
     }
 
-    public function onHakamDoctrineDbSwitcherBundleEventSwitchDbEvent( SwitchDbEvent $switchDbEvent)
+    public function onbyhaskellDoctrineDbSwitcherBundleEventSwitchDbEvent( SwitchDbEvent $switchDbEvent)
     {
         /** @var TenantDbConfigurationInterface $dbConfig */
         $dbConfig = $this->dbConfigService->findDbConfig($switchDbEvent->getDbIndex());

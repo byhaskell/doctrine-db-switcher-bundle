@@ -1,15 +1,15 @@
 <?php
 
 
-namespace Hakam\DoctrineDbSwitcherBundle;
+namespace byhaskell\DoctrineDbSwitcherBundle;
 
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * @author Ramy Hakam <pencilsoft1@gmail.com>
+ * @author Ramy byhaskell <pencilsoft1@gmail.com>
  */
-class HakamDoctrineDbSwitcherBundle extends Bundle
+class byhaskellDoctrineDbSwitcherBundle extends Bundle
 {
 
 }

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Hakam\DoctrineDbSwitcherBundle\Command;
+namespace byhaskell\DoctrineDbSwitcherBundle\Command;
 
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Psr\EventDispatcher\EventDispatcherInterface;
@@ -14,7 +14,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * @author Ramy Hakam <pencilsoft1@gmail.com>
+ * @author Ramy byhaskell <pencilsoft1@gmail.com>
  */
 class DiffCommand extends Command
 {

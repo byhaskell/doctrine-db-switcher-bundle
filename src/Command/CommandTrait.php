@@ -1,18 +1,18 @@
 <?php
 
 
-namespace Hakam\DoctrineDbSwitcherBundle\Command;
+namespace byhaskell\DoctrineDbSwitcherBundle\Command;
 
 
 use Doctrine\Migrations\Configuration\EntityManager\ExistingEntityManager;
 use Doctrine\Migrations\Configuration\Migration\ConfigurationArray;
 use Doctrine\Migrations\DependencyFactory;
 use Doctrine\ORM\EntityManagerInterface;
-use Hakam\DoctrineDbSwitcherBundle\Event\SwitchDbEvent;
+use byhaskell\DoctrineDbSwitcherBundle\Event\SwitchDbEvent;
 use Symfony\Component\Console\Input\InputInterface;
 
 /**
- * @author Ramy Hakam <pencilsoft1@gmail.com>
+ * @author Ramy byhaskell <pencilsoft1@gmail.com>
  */
 trait CommandTrait
 {

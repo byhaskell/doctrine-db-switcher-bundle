@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Hakam\DoctrineDbSwitcherBundle\Tests\FunctionalTest;
+namespace byhaskell\DoctrineDbSwitcherBundle\Tests\FunctionalTest;
 
 
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
 use Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle;
-use Hakam\DoctrineDbSwitcherBundle\HakamDoctrineDbSwitcherBundle;
+use byhaskell\DoctrineDbSwitcherBundle\byhaskellDoctrineDbSwitcherBundle;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -27,7 +27,7 @@ class DoctrineDbSwitcherBundleTestingKernel extends Kernel
         return [
             new DoctrineBundle(),
             new DoctrineMigrationsBundle(),
-            new HakamDoctrineDbSwitcherBundle(),
+            new byhaskellDoctrineDbSwitcherBundle(),
 
         ];
     }
@@ -35,7 +35,7 @@ class DoctrineDbSwitcherBundleTestingKernel extends Kernel
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load(function (ContainerBuilder $container) {
-            $container->loadFromExtension('hakam_doctrine_db_switcher', $this->doctrineDbSwitcherBundleConfig);
+            $container->loadFromExtension('byhaskell_doctrine_db_switcher', $this->doctrineDbSwitcherBundleConfig);
         });
     }
 

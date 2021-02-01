@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Hakam\DoctrineDbSwitcherBundle\DependencyInjection;
+namespace byhaskell\DoctrineDbSwitcherBundle\DependencyInjection;
 
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
@@ -9,13 +9,13 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**
  * @category Database
- * @author   Ramy Hakam <ramyhakam1@gmail.com>
+ * @author   Ramy byhaskell <ramybyhaskell1@gmail.com>
  */
 class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder('hakam_doctrine_db_switcher');
+        $treeBuilder = new TreeBuilder('byhaskell_doctrine_db_switcher');
         $rootNode = $treeBuilder->getRootNode();
 
         $rootNode

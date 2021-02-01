@@ -1,6 +1,6 @@
 <?php
 
-namespace Hakam\DoctrineDbSwitcherBundle\Command;
+namespace byhaskell\DoctrineDbSwitcherBundle\Command;
 
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -14,7 +14,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\DependencyInjection\Container;
 
 /**
- * @author Ramy Hakam <pencilsoft1@gmail.com>
+ * @author Ramy byhaskell <pencilsoft1@gmail.com>
  */
 final class MigrateCommand extends Command
 {

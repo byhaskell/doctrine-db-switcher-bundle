@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Hakam\DoctrineDbSwitcherBundle\Services;
+namespace byhaskell\DoctrineDbSwitcherBundle\Services;
 
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -12,7 +12,7 @@ use LogicException;
 use RuntimeException;
 
 /**
- * @author Ramy Hakam <pencilsoft1@gmail.com>
+ * @author Ramy byhaskell <pencilsoft1@gmail.com>
  */
 class DbConfigService
 {
@@ -48,7 +48,7 @@ class DbConfigService
         if( !$dbConfigObject instanceof TenantDbConfigurationInterface)
         {
             throw new LogicException(sprintf(
-                'The tenant db entity  " %s ". Should implement " Hakam\DbSwitcherBundle\TenantDbConfigurationInterface " ',
+                'The tenant db entity  " %s ". Should implement " byhaskell\DbSwitcherBundle\TenantDbConfigurationInterface " ',
                 get_class($dbConfigObject)
             ));
         }

@@ -1,13 +1,13 @@
 <?php
 
 
-namespace Hakam\DoctrineDbSwitcherBundle\Event;
+namespace byhaskell\DoctrineDbSwitcherBundle\Event;
 
 
 use Symfony\Contracts\EventDispatcher\Event;
 
 /**
- * @author Ramy Hakam <pencilsoft1@gmail.com>
+ * @author Ramy byhaskell <pencilsoft1@gmail.com>
  */
 class SwitchDbEvent extends Event
 {

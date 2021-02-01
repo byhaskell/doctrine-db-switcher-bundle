@@ -4,42 +4,42 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services
         http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id ="hakam_db_config.service" class="Hakam\DoctrineDbSwitcherBundle\Services\DbConfigService" public="false" >
+        <service id ="byhaskell_db_config.service" class="byhaskell\DoctrineDbSwitcherBundle\Services\DbConfigService" public="false" >
             <argument  key="$entityManager" type="service" id = 'doctrine.orm.entity_manager'/>
             <argument  key="$dbClassName" type="string" id="dbClassName"/>
             <argument  key="$dbIdentifier" type="string" id="id"/>
         </service>
-        <service id="Hakam\DoctrineDbSwitcherBundle\Services\DbConfigService" alias="hakam_db_config.service"/>
-        <service id="Hakam\DoctrineDbSwitcherBundle\EventListener\DbSwitchEventListener">
-            <tag name="kernel.event_listener" event= "Hakam\DoctrineDbSwitcherBundle\Event\SwitchDbEvent" />
+        <service id="byhaskell\DoctrineDbSwitcherBundle\Services\DbConfigService" alias="byhaskell_db_config.service"/>
+        <service id="byhaskell\DoctrineDbSwitcherBundle\EventListener\DbSwitchEventListener">
+            <tag name="kernel.event_listener" event= "byhaskell\DoctrineDbSwitcherBundle\Event\SwitchDbEvent" />
             <argument type="service" id="service_container"/>
-            <argument type="service" id="hakam_db_config.service"/>
+            <argument type="service" id="byhaskell_db_config.service"/>
         </service>
 
-        <service id="Hakam\DoctrineDbSwitcherBundle\Command\DiffCommand">
+        <service id="byhaskell\DoctrineDbSwitcherBundle\Command\DiffCommand">
             <tag name="console.command" />
             <argument type="service" id="Doctrine\Common\Persistence\ManagerRegistry"/>
             <argument type="service" id="service_container"/>
             <argument type="service" id="event_dispatcher" />
         </service>
-        <service id="Hakam\DoctrineDbSwitcherBundle\Command\MigrateCommand">
+        <service id="byhaskell\DoctrineDbSwitcherBundle\Command\MigrateCommand">
             <tag name="console.command" />
             <argument type="service" id="Doctrine\Common\Persistence\ManagerRegistry"/>
             <argument type="service" id="service_container"/>
             <argument type="service" id="event_dispatcher" />
         </service>
 
-        <service id="Hakam\DoctrineDbSwitcherBundle\Command\UpdateSchemaCommand">
+        <service id="byhaskell\DoctrineDbSwitcherBundle\Command\UpdateSchemaCommand">
             <tag name="console.command" />
             <argument type="service" id="Doctrine\Common\Persistence\ManagerRegistry"/>
             <argument type="service" id="service_container"/>
             <argument type="service" id="event_dispatcher" />
         </service>
-        <service id="tenant_db_interface" class="Hakam\DoctrineDbSwitcherBundle\Services\TenantDbConfigurationInterface" public="true"/>
+        <service id="tenant_db_interface" class="byhaskell\DoctrineDbSwitcherBundle\Services\TenantDbConfigurationInterface" public="true"/>
 
-        <service class="Hakam\DoctrineDbSwitcherBundle\Doctrine\ORM\TenantEntityManager" id="tenant_entity_manager" public="true">
+        <service class="byhaskell\DoctrineDbSwitcherBundle\Doctrine\ORM\TenantEntityManager" id="tenant_entity_manager" public="true">
             <argument type="service" id="doctrine.orm.tenant_entity_manager"/>
         </service>
-        <service id="Hakam\DoctrineDbSwitcherBundle\Doctrine\ORM\TenantEntityManager" alias="tenant_entity_manager" />
+        <service id="byhaskell\DoctrineDbSwitcherBundle\Doctrine\ORM\TenantEntityManager" alias="tenant_entity_manager" />
     </services>
 </container>

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Hakam\DoctrineDbSwitcherBundle\Doctrine\ORM;
+namespace byhaskell\DoctrineDbSwitcherBundle\Doctrine\ORM;
 
 
 use Doctrine\ORM\Decorator\EntityManagerDecorator;
@@ -10,7 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
 /**
  * Entity Manager for Tenant Database
  *
- * @author  Ramy Hakam <ramyhakam1@gmial.com>
+ * @author  Ramy byhaskell <ramybyhaskell1@gmial.com>
  */
 
 class TenantEntityManager extends EntityManagerDecorator
