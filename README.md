@@ -151,7 +151,129 @@ byhaskell_doctrine_db_switcher:
         date_add: '\DoctrineExtensions\Query\Mysql\DateAdd'
         date_sub: '\DoctrineExtensions\Query\Mysql\DateSub'
  ```
-             
+
+###Configuration Doctrine
+
+Example configuration doctrine.yaml
+
+```
+doctrine:
+    dbal:
+        default_connection: tenant
+        connections:
+            tenant:
+                url: '%env(DATABASE_URL_TENANT)%'
+                driver: 'pdo_mysql'
+                server_version: '5.7'
+                charset: utf8mb4
+                default_table_options:
+                    charset: utf8mb4
+                    collate: utf8mb4_unicode_ci
+                wrapper_class: byhaskell\DoctrineDbSwitcherBundle\Doctrine\DBAL\TenantConnection
+    orm:
+        default_entity_manager: tenant
+        entity_managers:
+            tenant:
+                connection: tenant
+                mappings:
+                    tenant:
+                        is_bundle: false
+                        type: annotation
+                        dir: '%kernel.project_dir%/src/Entity/Tenant'
+                        prefix: 'App\Entity\Tenant'
+                        alias: tenant
+                dql:
+                    string_functions:
+                        MD5: DoctrineExtensions\Query\Mysql\Md5
+                        regexp: DoctrineExtensions\Query\Mysql\Regexp
+                        date_format: DoctrineExtensions\Query\Mysql\DateFormat
+                        year: DoctrineExtensions\Query\Mysql\Year
+                        day: DoctrineExtensions\Query\Mysql\Day
+                        NOW: DoctrineExtensions\Query\Mysql\Now
+                        date_diff: DoctrineExtensions\Query\Mysql\DateDiff
+                        date: DoctrineExtensions\Query\Mysql\Date
+                        date_add: DoctrineExtensions\Query\Mysql\DateAdd
+                        date_sub: DoctrineExtensions\Query\Mysql\DateSub
+```
+Often other bundles request a connection `default`, so we recommend leaving the default one and adding a new one.
+
+### Custom EventListener
+
+For the correct choice of the database, in most cases the proposed default option is not suitable. Customize.
+
+```
+<?php
+
+namespace App\EventListener;
+
+use App\Doctrine\DBAL\TenantConnection;
+use App\Entity\Tenant\Users;
+use App\Repository\TenantRepository;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+
+class RequestListener implements EventSubscriberInterface
+{
+    /**
+     * @var ContainerInterface
+     */
+    private $container;
+    /**
+     * @var TenantRepository
+     */
+    private $tenantRepository;
+
+    private $storage;
+
+    public function __construct(ContainerInterface $container,TenantRepository $tenantRepository, TokenStorageInterface $storage)
+    {
+        $this->container = $container;
+        $this->tenantRepository = $tenantRepository;
+        $this->storage = $storage;
+    }
+
+    public static function getSubscribedEvents()
+    {
+        return [
+            RequestEvent::class => 'onKernelRequest'
+        ];
+    }
+
+    public function onKernelRequest( RequestEvent $event): void
+    {
+        //Переменная для объекта с данными подключаемой базы
+        $tenant = null;
+        //Определяем пользователя что бы определить к какой базе получить доступ.
+        //По дефолту берем первую базу так как она основная
+        if(!empty($this->storage->getToken()) && $this->storage->getToken()->getUser() instanceof Users) {
+            $referer = $event->getRequest()->headers->get('referer');
+            if(!empty($referer)){
+                if(stripos($referer, '//') !== false){
+                    $referer = substr($referer, stripos($referer, '//')+2);
+                }
+                if(stripos($referer, '/') !== false){
+                    $referer = substr($referer, 0, stripos($referer, '/'));
+                }
+            }
+            $tenant = $this->tenantRepository->findOneBy( ['domain' => $referer ] );
+        }
+        //Если пустой, значит не смогли определить пользователя и включаемся в основную базу данных
+        if($tenant === null){
+            $tenant = $this->tenantRepository->find(1);
+        }
+
+        /**
+         * @var TenantConnection $tenantConnection
+         */
+        $tenantConnection = $this->container->get('doctrine')->getConnection('tenant');
+        $tenantConnection->changeParams($tenant->getDbName(), $tenant->getDbUserName(), $tenant->getDbPassword());
+        $tenantConnection->reconnect();
+    }
+}
+```
+
 ### Contribution
 
 Want to contribute? Great!
