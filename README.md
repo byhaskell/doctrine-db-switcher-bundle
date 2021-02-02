@@ -154,7 +154,7 @@ byhaskell_doctrine_db_switcher:
  ```
 Attention! dql is optional
 
-###Configuration Doctrine
+###Doctrine
 
 Example configuration doctrine.yaml
 
