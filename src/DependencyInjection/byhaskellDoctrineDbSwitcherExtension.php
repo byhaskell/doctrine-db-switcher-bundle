@@ -79,7 +79,7 @@ class byhaskellDoctrineDbSwitcherExtension extends Extension implements PrependE
                 throw new InvalidConfigurationException('You need to enable Doctrine Bundle to be able to use db switch bundle');
             }
 
-            if (!isset($bundles['doctrine_migrations'])) {
+            if (!isset($bundles['DoctrineMigrationsBundle'])) {
 
                 $container->setParameter('tenant_doctrine_migration', ['migrations_paths' => $tenantDoctrineMigrationPath]);
             } else {
