@@ -39,7 +39,7 @@
         <service id="tenant_db_interface" class="byhaskell\DoctrineDbSwitcherBundle\Services\TenantDbConfigurationInterface" public="true"/>
 
         <service class="byhaskell\DoctrineDbSwitcherBundle\Doctrine\ORM\TenantEntityManager" id="tenant_entity_manager" public="true">
-            <argument type="service" id="doctrine.orm.default_entity_manager"/>
+            <argument type="service" id="doctrine.orm.tanent_entity_manager"/>
         </service>
         <service id="byhaskell\DoctrineDbSwitcherBundle\Doctrine\ORM\TenantEntityManager" alias="tenant_entity_manager" />
     </services>
