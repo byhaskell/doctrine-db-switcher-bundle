@@ -152,6 +152,7 @@ byhaskell_doctrine_db_switcher:
         date_add: '\DoctrineExtensions\Query\Mysql\DateAdd'
         date_sub: '\DoctrineExtensions\Query\Mysql\DateSub'
  ```
+Attention! dql is optional
 
 ###Configuration Doctrine
 
