@@ -67,20 +67,14 @@ class byhaskellDoctrineDbSwitcherExtension extends Extension implements PrependE
                 ]
             ];
 
-            $tenantDoctrineMigrationPath =
-                [
-                    $dbSwitcherConfig['tenant_migration']['tenant_migration_namespace'] => $dbSwitcherConfig['tenant_migration']['tenant_migration_path']
-                ];
-
             if (!isset($bundles['doctrine'])) {
-
                 $container->prependExtensionConfig('doctrine', ['dbal' => $tenantConnectionConfig, 'orm' => $tenantEntityManagerConfig]);
             } else {
                 throw new InvalidConfigurationException('You need to enable Doctrine Bundle to be able to use db switch bundle');
             }
 
-            if (!isset($bundles['DoctrineMigrationsBundle'])) {
-
+            if (isset($bundles['DoctrineMigrationsBundle'])) {
+                $tenantDoctrineMigrationPath = [ $dbSwitcherConfig['tenant_migration']['tenant_migration_namespace'] => $dbSwitcherConfig['tenant_migration']['tenant_migration_path'] ];
                 $container->setParameter('tenant_doctrine_migration', ['migrations_paths' => $tenantDoctrineMigrationPath]);
             } else {
                 throw new InvalidConfigurationException('You need to enable Doctrine Migration Bundle to be able to use db switch bundle');
