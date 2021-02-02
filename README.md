@@ -113,6 +113,7 @@ $ composer require byhaskell/doctrine-db-switcher-bundle
            //..
        }
    ```
+
  ### Configuration
  
  In this example below you can find the list of all configuration parameters required witch you should create in
